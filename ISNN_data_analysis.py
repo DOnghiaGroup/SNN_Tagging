@@ -6,18 +6,25 @@ from astropy.io import fits
 from astropy.table import Table, join, Column
 import numpy as np
 import scipy.stats as stats
+from scipy.sparse import lil_matrix
+import scipy.spatial.distance as distance
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.neighbors import NearestNeighbors, DistanceMetric
 from sklearn import mixture, preprocessing
 from sklearn.metrics.pairwise import pairwise_distances
-import scipy.spatial.distance as distance
 from sklearn.metrics.cluster import v_measure_score, homogeneity_completeness_v_measure
-from scipy.sparse import lil_matrix
 import cPickle as pickle
 
 
 def jaccard(a,b):
+    """
+    Calculate Jaccard distance between two arrays
+    Parameters:
+    -----------
+    a: an array
+    b: an array
+    """
     A = np.array(a, dtype='int')
     B = np.array(b, dtype='int')
     A = A[np.where(A > -1)[0]]
@@ -28,13 +35,21 @@ def jaccard(a,b):
 
 
 def get_friends(data, num_element, n_chem, n_rv):
+    """
+    Get neartest neighbors in both chemical and radial velocity spaces for every star.
+    Parameters:
+    -----------
+    data: a matrix that contains chemical abundances and radial velocities
+    num_element: number of elements in the matrix
+    n_chem: number of nearest neighbors in chemical space 
+    n_rv: number of nearest neighbors in radial velocity space
+    """
     data = np.array(data)
     index_chem = np.arange(0, num_element, 1)
     nbrs_chem = NearestNeighbors(n_neighbors=n_chem, algorithm='ball_tree', metric='manhattan').fit(data[:,index_chem])
     distances_chem, indices_chem = nbrs_chem.kneighbors(data[:,index_chem])
     index_rv = np.arange(num_element, len(data[0]), 1)
     rv_data = np.copy(data[:,index_rv])
-#     indices_rv = np.array([np.where(np.abs(rv - rv_data) < 1)[0] for rv in rv_data])
     if len(rv_data[0]) < 2:
         rv_data = rv_data.reshape(-1, 1)
     nbrs_rv = NearestNeighbors(n_neighbors=n_rv, algorithm='ball_tree').fit(rv_data)
@@ -47,6 +62,12 @@ def get_friends(data, num_element, n_chem, n_rv):
 
 
 def iterator_dist(indices):
+    """
+    An iterator that calculates ans stores the Jaccard distance between every two stars
+    Parameters:
+    -----------
+    indices: a list of indices of neighbors for every star
+    """
     for n in range(len(indices)):
         for m in range(n+1, len(indices)):
             dist = jaccard(indices[n], indices[m])
