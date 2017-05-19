@@ -80,7 +80,7 @@ def run():
     N_RV = 300
     N_CUT = 1
     DATAFILE_NAME = 'results-unregularized-matched.fits'
-    FEATURE_NAMES = ['APOGEE_ID', 'VHELIO_AVG', 'V_H', 'TI_H', 'CA_H', 'FE_H', 'K_H', 'MN_H', 'NI_H', 'SI_H', 'S_H']
+    FEATURE_NAMES = ['APOGEE_ID', 'GLON', 'GLAT', 'VHELIO_AVG', 'V_H', 'TI_H', 'CA_H', 'FE_H', 'K_H', 'MN_H', 'NI_H', 'SI_H', 'S_H']
     ELEMENT_NAMES = ['V_H', 'TI_H', 'CA_H','FE_H', 'K_H', 'MN_H', 'NI_H', 'SI_H', 'S_H']
     MEMBERFILE_NAME = 'table4.dat'
 
