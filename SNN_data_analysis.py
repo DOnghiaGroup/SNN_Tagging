@@ -213,6 +213,7 @@ def run():
     print "#Categorized as Member/ Ratio of Member"
     print len(np.where(labels != -1)[0]), len(np.where(labels != -1)[0])*1.0/len(labels)
 
+    pickle.dump(ap_table_halo, open("ap_table_halo.p", "wb"))
     pickle.dump(labels, open("SNN_DBSCAN_labels.p", "wb"))
     pickle.dump(non_noise, open("SNN_non_noise_stars.p", "wb"))
     pickle.dump(S, open("SNN_distance_matrix.p", "wb"))
