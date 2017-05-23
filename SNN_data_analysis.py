@@ -80,7 +80,8 @@ def run():
     N_RV = 300
     N_CUT = 1
     DATAFILE_NAME = 'results-unregularized-matched.fits'
-    FEATURE_NAMES = ['APOGEE_ID', 'GLON', 'GLAT', 'VHELIO_AVG', 'V_H', 'TI_H', 'CA_H', 'FE_H', 'K_H', 'MN_H', 'NI_H', 'SI_H', 'S_H']
+    FEATURE_NAMES = ['APOGEE_ID', 'GLON', 'GLAT', 'RA', 'DEC', 'VHELIO_AVG', 'LOGG', 'TEFF', 'PMRA', 'PMDEC', 'AL_H', 'NA_H', 'O_H', 
+			'MG_H','C_H', 'N_H', 'V_H', 'TI_H', 'CA_H','FE_H', 'K_H', 'MN_H', 'NI_H', 'SI_H', 'S_H', 'SNR']
     ELEMENT_NAMES = ['V_H', 'TI_H', 'CA_H','FE_H', 'K_H', 'MN_H', 'NI_H', 'SI_H', 'S_H']
     MEMBERFILE_NAME = 'table4.dat'
 
@@ -168,9 +169,9 @@ def run():
 
     ## compose a matrix that contains chemical abundances and radial velocity
     Fe_index = np.where(element_names == 'FE_H')[0][0]
-    chem = [ap_table[element]-ap_table['FE_H'] for element in element_names]
-    chem[Fe_index] = ap_table['FE_H']
-    chem.append(ap_table['VHELIO_AVG'])
+    chem = [ap_table_halo[element]-ap_table_halo['FE_H'] for element in element_names]
+    chem[Fe_index] = ap_table_halo['FE_H']
+    chem.append(ap_table_halo['VHELIO_AVG'])
     chem_RV = np.array(chem).T
     chem = np.delete(chem_RV,-1,1)
     print "The shape of the matrix is ",
@@ -213,7 +214,7 @@ def run():
     print "#Categorized as Member/ Ratio of Member"
     print len(np.where(labels != -1)[0]), len(np.where(labels != -1)[0])*1.0/len(labels)
 
-    pickle.dump(ap_table_halo, open("ap_table_halo.p", "wb"))
+    ap_table_halo.write("ap_table_halo.csv")
     pickle.dump(labels, open("SNN_DBSCAN_labels.p", "wb"))
     pickle.dump(non_noise, open("SNN_non_noise_stars.p", "wb"))
     pickle.dump(S, open("SNN_distance_matrix.p", "wb"))
