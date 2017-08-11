@@ -18,11 +18,11 @@ git clone https://github.com/DOnghiaGroup/SNN_Tagging
 ## Requirements.
 The following packages are required to use SNN_Tagging. You can install them with pip or conda (or your prefered package manager).
 
-[http://www.astropy.org/](astropy)
-[http://scikit-learn.org/stable/](sci-kit learn)
-[https://www.scipy.org/](scipy)
-[http://www.numpy.org/](numpy)
-[https://matplotlib.org/](matplotlib)
+[astropy](http://www.astropy.org/)
+[sci-kit learn](http://scikit-learn.org/stable/)
+[scipy](https://www.scipy.org/)
+[numpy](http://www.numpy.org/)
+[matplotlib](https://matplotlib.org/)
 
 ```
 pip install --user --upgrade astropy
@@ -31,7 +31,7 @@ pip install --user --upgrade scipy
 pip install --user --upgrade numpy
 pip install --user --upgrade matplotlib
 ```
-In addition, most of the tools are currently implemented as [http://jupyter.org/](Jupyter) notebooks. Make sure you have a recent version of Jupyter installed.
+In addition, most of the tools are currently implemented as [Jupyter](http://jupyter.org/) notebooks. Make sure you have a recent version of Jupyter installed.
 
 # Quickstart
 
