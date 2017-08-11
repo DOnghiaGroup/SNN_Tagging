@@ -19,9 +19,13 @@ git clone https://github.com/DOnghiaGroup/SNN_Tagging
 The following packages are required to use SNN_Tagging. You can install them with pip or conda (or your prefered package manager).
 
 [astropy](http://www.astropy.org/)
+
 [sci-kit learn](http://scikit-learn.org/stable/)
+
 [scipy](https://www.scipy.org/)
+
 [numpy](http://www.numpy.org/)
+
 [matplotlib](https://matplotlib.org/)
 
 ```
