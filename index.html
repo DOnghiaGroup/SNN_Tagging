@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h2>SNN Tagging</h2>
+
+A tool to recover golobular clusters with chemical abundances and radial velocities.
+
+{% for _page in site.sections %}
+<section id={{ _page.link | downcase}}>
+    <h2>{{ _page.title }}</h2>
+    {{ _page.content }}
+
+</section>
+<hr />
+
+{% endfor %}
+
+
+</div>
