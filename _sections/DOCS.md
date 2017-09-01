@@ -64,11 +64,13 @@ See our paper here: LINK
 
 The data analysis part is run with SNN_data_analysis.py. Before running the file, values need to be assigned to the following variables. 
 
+```
 EPS = 0.35
 MIN_SAMPLES = 8
 N_CHEM = 500
 N_RV = 300
 N_CUT = 1
+```
 
 N_CHEM is the number of nearest neighbors considered in the chemical space. N_RV is the number of nearest neighbors considered in the velocity space. N_CUT is the minimum amount of neighbors that a star considered for clustering should have. EPS and MIN_SAMPLES are parameters for DBSCAN clustering algorithm. 
 
