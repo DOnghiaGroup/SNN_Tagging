@@ -75,3 +75,13 @@ N_CUT = 1
 N_CHEM is the number of nearest neighbors considered in the chemical space. N_RV is the number of nearest neighbors considered in the velocity space. N_CUT is the minimum amount of neighbors that a star considered for clustering should have. EPS and MIN_SAMPLES are parameters for DBSCAN clustering algorithm. 
 
 The data analysis is currently only run on stars with |b| < 20 degrees. 
+
+After the data analysis is finished, the following files are created as output. 
+
+```
+ap_table_halo_nn
+SNN_DBSCAN_labels.p
+SNN_distance_matrix.p
+```
+
+ap_table_halo_nn contains the original dataset used for clustering. SNN_DBSCAN_labels has the clustering results from DBSCAN. SNN_distance_matrix is the distance matrix used for DBSCAN clustering. 
