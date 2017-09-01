@@ -62,6 +62,12 @@ See our paper here: LINK
 
 # Running
 
+Note: The full analysis currently takes ~20 hours to run on a moderatly fast machine. If you are curious about how it works, we encourage you to look first at the quickstart guide above.
+
+For this analysis, we assume that you have the stellar parameter catalog derived from The Cannon(CITE). If you are a SDSS-IV member you can find this at the SDSS [wiki](https://trac.sdss.org/wiki/APOGEE2/Cannon)  (login required). We specifically use file "results-unregularized-matched.fits.gz". 
+
+If you want to use a different stellar parameter catalogs, you will need to modify the variable FILENAME. Some of the analysis below, may not work on all datasets. If you are interested in applying this method to other data, please let us know and we will be happy help.
+
 The data analysis part is run with SNN_data_analysis.py. Before running the file, values need to be assigned to the following variables. 
 
 ```
