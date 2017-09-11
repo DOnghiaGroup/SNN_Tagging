@@ -62,7 +62,7 @@ See our paper here: LINK
 
 # Running
 
-The data analysis part is run with SNN_data_analysis.py. Before running the file, values need to be assigned to the following variables. 
+The data analysis part is run with SNN_data_analysis.py. Before running the file, values need to be assigned to the following variables.
 
 EPS = 0.35
 MIN_SAMPLES = 8
